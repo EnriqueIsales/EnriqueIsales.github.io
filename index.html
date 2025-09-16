@@ -1,17 +1,322 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="es">
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio</title>
-</head>
-<body>
-    
-<label for="">Titulo 1</label>
-    <label for="">Titulo 1</label>
-    <label for="">Titulo 1</label>
-    <label for="">Titulo 1</label>
+    <link rel="stylesheet" media="screen" href="css/app.css">
+    <title>Portafolio - Enrique Isales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+      body {
+          background: #0b0c10; 
+          color: white;
+          margin: 0;
+          padding: 0;
+          overflow-x: hidden;
+      }
 
-</body>
+      h1,h2,h3,h4,h5,h6 {
+        color: #f8f9fa;
+      }
+
+
+      body.light-mode {
+        background: #f8f9fa;
+        color: #111;
+      }
+      
+      body.light-mode .glass {
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.2);
+      }
+
+      body.light-mode a {
+        color: #111;
+      }
+
+      body.light-mode h1 {
+        color: #111;
+      }
+
+      body.light-mode p {
+        color: #222;
+      }
+
+      body.light-mode h1,
+      body.light-mode h2 {
+        color: #000;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .profile-pic {
+        border: 4px solid rgba(255,255,255,0.6);
+        animation: pulse 7s infinite;
+      }
+
+      #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+
+
+      main, .glass, .contenido {
+        position: relative;
+        z-index: 1;
+      }
+
+      @keyframes pulse {
+        0% {box-shadow: 0 0 20px #8ab4f8;}
+        25% {box-shadow: 0 0 40px #a78bfa;}
+        50% {box-shadow: 0 0 60px #713ee7; }
+        75% {box-shadow: 0 0 40px #8e13e0; }
+        100% {box-shadow: 0 0 20px #f4f5f7;}
+      }
+    </style>
+  </head>
+  <body class="text-white flex flex-col items-center justify-start min-h-screen ">
+
+        <!-- Fondo de partículas -->
+      <div id="particles-js"></div>
+
+      <!-- Botón modo oscuro/claro -->
+    <button id="toggle-theme" 
+      class="fixed top-5 right-5 glass px-4 py-2 rounded-xl hover:bg-white/20 transition">
+      🌙 / ☀️
+    </button>
+      
+      <!-- Foto -->
+      <div class="mt-10" data-aos="fade-down">
+        <img src="img/perfil.jpg" alt="Foto Perfil" 
+            class="w-40 h-40 rounded-full profile-pic object-cover">
+      </div>
+
+      <!-- Biografía -->
+      <div class="glass mt-8 p-6 w-11/12 md:w-2/3 text-center" data-aos="fade-up">
+        <h1 class="text-2xl font-bold mb-4">Sobre mí</h1>
+        <p>Soy un analista programador apasionado por crear soluciones innovadoras. Me especializo en desarrollo web, bases de datos y automatización.</p>
+        
+        <h2 class="text-xl font-semibold mt-6">Habilidades Técnicas</h2>
+        <p>PHP, JavaScript, Python, MySQL, FastAPI, React, GitHub, Cloud.</p>
+        
+        <h2 class="text-xl font-semibold mt-6">Experiencia</h2>
+        <p>Desarrollo de módulos ERP, integración de APIs REST/SOAP, y soporte en entornos productivos.</p>
+      </div>
+
+      <!-- Botones -->
+      <div class="flex gap-4 mt-10 mb-10" data-aos="zoom-in">
+        <a href="#proyectos" class="glass px-6 py-3 rounded-xl hover:bg-white/20 transition">Proyectos</a>
+        <a href="#contacto" class="glass px-6 py-3 rounded-xl hover:bg-white/20 transition">Contacto</a>
+        <a href="#habilidades" class="glass px-6 py-3 rounded-xl hover:bg-white/20 transition">Habilidades</a>
+        <a href="#blog" class="glass px-6 py-3 rounded-xl hover:bg-white/20 transition">Blog / Artículos</a>
+      </div>
+
+      <!-- Secciones desplegables -->
+    <main class="w-11/12 md:w-2/3 space-y-12 mb-16">
+
+      <section id="proyectos" class="glass p-6 hidden">
+        <h2 class="text-xl font-bold mb-4">Proyectos</h2>
+        <p>Proyectos</p>
+      </section>
+
+      <section id="contacto" class="glass p-6 hidden">
+        <h2 class="text-xl font-bold mb-4">Contacto</h2>
+        <p>Email: enrique_isales@proton.me</p>
+      </section>
+
+      <section id="habilidades" class="glass p-6 hidden">
+        <h2 class="text-xl font-bold mb-4">Habilidades</h2>
+        <p>Lista detallada de habilidades técnicas y blandas.</p>
+      </section>
+
+      <section id="blog" class="glass p-6 hidden">
+        <h2 class="text-xl font-bold mb-4">Blog / Artículos</h2>
+        <p>Links a tus artículos o reflexiones técnicas.</p>
+      </section>
+
+    </main>
+
+
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+        AOS.init();
+      </script>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script >
+
+      const themeBtn = document.getElementById("toggle-theme");
+
+
+        function loadParticles(color) {
+
+          particlesJS('particles-js',
+          {
+          "particles": {
+             number: { value: 80, density: { enable: true, value_area: 800 }
+            },
+            // color: {value: "#ffffff" },
+            color: {value: color },
+            shape: { type: "circle", stroke: {
+                width: 0,
+                color: color
+              },
+              polygon: {
+                nb_sides: 5
+              },
+              image: {
+                src: "img/github.svg",
+                width: 100,
+                height: 100
+              }
+            },
+            opacity: {
+              value: 0.5,
+              random: false,
+              anim: {
+                enable: false,
+                speed: 1,
+                opacity_min: 0.1,
+                sync: false
+              }
+            },
+            size: {
+              value: 5,
+              random: true,
+              anim: {
+                enable: false,
+                speed: 40,
+                size_min: 0.1,
+                sync: false
+              }
+            },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              // color: "#ffffff",
+              color: color,
+              opacity: 0.4,
+              width: 1
+            },
+            move: {
+              enable: true,
+              speed: 6,
+              direction: "none",
+              random: false,
+              straight: false,
+              out_mode: "out",
+              attract: {
+                enable: false,
+                rotateX: 600,
+                rotateY: 1200
+              }
+            }
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: {
+                enable: true,
+                mode: "repulse"
+              },
+              onclick: {
+                enable: true,
+                mode: "push"
+              },
+              resize: true
+            },
+            modes: {
+              grab: {
+                distance: 400,
+                line_linked: {
+                  opacity: 1
+                }
+              },
+              bubble: {
+                distance: 400,
+                size: 40,
+                duration: 2,
+                opacity: 8,
+                speed: 3
+              },
+              repulse: {
+                distance: 200
+              },
+              push: {
+                particles_nb: 4
+              },
+              remove: {
+                particles_nb: 2
+              }
+            }
+          },
+          retina_detect: true,
+          config_demo: {
+            hide_card: false,
+            background_color: "#ffffff",
+            background_image: "",
+            background_position: "50% 50%",
+            background_repeat: "no-repeat",
+            background_size: "cover",
+          }
+        }
+
+          );
+
+
+
+
+
+        }
+        
+        // Cargar por defecto en modo oscuro
+        loadParticles("#ffffff");
+
+              // Mostrar/ocultar secciones
+          // Cambiar al alternar el tema
+        themeBtn.addEventListener("click", () => {
+          document.body.classList.toggle("light-mode");
+
+          // Cambiar partículas según el tema
+          if (document.body.classList.contains("light-mode")) {
+            loadParticles("#000000"); // negro
+          } else {
+            loadParticles("#ffffff"); // blanco
+          }
+        });
+
+
+          document.querySelectorAll('a[href^="#"]').forEach(btn => {
+            btn.addEventListener('click', e => {
+              e.preventDefault();
+              let target = document.querySelector(btn.getAttribute('href'));
+
+              // Ocultar todas
+              document.querySelectorAll("main section").forEach(sec => sec.classList.add("hidden"));
+
+              // Mostrar la seleccionada
+              if (target) {
+                target.classList.remove("hidden");
+                target.scrollIntoView({ behavior: "smooth" });
+              }
+            });
+          });
+
+    </script>
+
+        <!-- stats.js -->
+    <script src="js/lib/stats.js"></script>
+
+  </body>
 </html>
